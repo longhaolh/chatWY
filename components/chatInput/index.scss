@@ -1,5 +1,45 @@
 .chat-input{
-	height: 120rpx;
+	min-height: 90rpx;
 	width: 100vw;
 	background-color: #f1f1f1;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	padding: 24rpx;
+	border: none;
+	.center{
+		width: 65%;
+		margin: 0 20rpx;
+		::v-deep .uni-textarea-textarea{
+			background-color: #fff;
+			min-height: 48rpx;
+			font-size: 32rpx;
+			padding: 10rpx 16rpx;
+		}
+		::v-deep .uni-easyinput__content{
+			border-radius: 10rpx;
+		}
+		::v-deep .uni-easyinput__content-textarea{
+			min-height: 70rpx;
+			width: 100%;
+			margin: 0!important;
+			border-radius: 10rpx;
+		}
+		::v-deep .input-box{
+		}
+	}
+	.emoji{
+		margin-right: 20rpx;
+	}
+	.right{
+		.send-btn{
+			padding: 14rpx 36rpx;
+			background-color: #05c160;
+			border-radius: 8rpx;
+			white-space: nowrap;
+			color: #fff;
+		}
+	}
 }

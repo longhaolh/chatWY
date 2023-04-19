@@ -10,21 +10,21 @@
 		box-sizing: border-box;
 		.avatar{
 			overflow: hidden;
-			width: 80rpx;
-			height: 80rpx;
+			width: 72rpx;
+			height: 72rpx;
 			border-radius: 10rpx;
 			image{
-				width: 80rpx;
+				width: 72rpx;
 			}
 		}
 		.textinfo{
 			background-color: #93eb67;
-			padding: 20rpx;
+			padding: 16rpx;
 			margin-right: 24rpx;
 			box-sizing: border-box;
 			border-radius: 10rpx;
 			position: relative;
-			min-height: 80rpx;
+			min-height: 72rpx;
 			max-width: calc(100vw - 40rpx - 248rpx);
 			&::after{
 				content: "";

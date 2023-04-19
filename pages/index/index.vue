@@ -3,8 +3,8 @@
 		<image class="logo" src="/static/logo.png"></image>
 		<view class="text-area">
 			<button type="primary" @click="toPage(0)">聊天界面</button>
-			<text>聊天记录生成器V1.0</text>
 		</view>
+		<text class="version">聊天记录生成器V1.0</text>
 	</view>
 </template>
 
@@ -32,14 +32,22 @@
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
-
+	.version {
+		color: #ccc;
+		font-size: 24rpx;
+		margin-top: 36rpx;
+		position: fixed;
+		bottom: 20rpx;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 	.logo {
 		height: 200rpx;
 		width: 200rpx;
@@ -52,10 +60,8 @@
 	.text-area {
 		display: flex;
 		justify-content: center;
-		text{
-			color: #999;
-			font-size: 24rpx
-		}
+		flex-direction: column;
+		
 	}
 
 	.title {
