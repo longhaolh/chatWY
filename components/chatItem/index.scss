@@ -1,0 +1,53 @@
+.chat-item{
+	.me,.other{
+		width: 100vw;
+		padding: 0 32rpx;
+		padding-top: 20rpx;
+		min-height: 110rpx;
+		display: flex;
+		justify-content: flex-end;
+		align-items: flex-start;
+		box-sizing: border-box;
+		.avatar{
+			overflow: hidden;
+			width: 80rpx;
+			height: 80rpx;
+			border-radius: 10rpx;
+			image{
+				width: 80rpx;
+			}
+		}
+		.textinfo{
+			background-color: #93eb67;
+			padding: 20rpx;
+			margin-right: 24rpx;
+			box-sizing: border-box;
+			border-radius: 10rpx;
+			position: relative;
+			min-height: 80rpx;
+			max-width: calc(100vw - 40rpx - 248rpx);
+			&::after{
+				content: "";
+				position: absolute;
+				top: 36rpx;
+				right: -10rpx;
+				background-color: #93eb67;
+				transform: rotate(45deg);
+				width: 20rpx;
+				height: 20rpx;
+				border-top-right-radius: 6rpx;
+			}
+		}
+	}
+	.other{
+		justify-content: flex-start;
+		.textinfo{
+			background-color: #fff;
+			margin-left: 24rpx;
+			&::after{
+				background-color: #fff;
+				left: -10rpx;
+			}
+		}
+	}
+}
