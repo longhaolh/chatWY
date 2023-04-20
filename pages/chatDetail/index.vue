@@ -1,7 +1,9 @@
 <template>
 	<view class="content">
-		<ChatItem :chatContent="item" :isMe="item.isme" v-for="(item,index) in chatInfo" :key="index"></ChatItem>
-		<ChatInput @sendMsg="addChatInfo" :inputMode="interface.textInput" :userinfo="myInfo"></ChatInput>
+		<scroll-view class="scroll-view" scroll-y="true" :style="scrollStyle">
+			<ChatItem :chatContent="item" :robotInfo="robotInfo" :isMe="item.isme" v-for="(item,index) in chatInfo" :key="index"></ChatItem>
+		</scroll-view>
+		<ChatInput @statusChange="computeHeight" class="inputBox" @sendMsg="addChatInfo" :inputMode="interface.textInput" :userinfo="myInfo"></ChatInput>
 	</view>
 </template>
 
@@ -44,7 +46,8 @@
 					backgroundImage:'',//聊天界面背景图
 					draktheme:false,//是否开启深色模式
 					textInput:true,//是否为文字输入模式
-				}//界面设置
+				},//界面设置
+				scrollStyle:""
 			}
 		},
 		components: {
@@ -57,17 +60,29 @@
 					title:this.robotInfo.nickName
 				})
 			}
+			this.computeHeight()
 		},
 		methods: {
 			// 添加聊天记录
 			addChatInfo(data) {
 				let chatObj = {}
-				console.log("data: ",data);
-				if(data.isme){
-					
-				}
+				console.log("添加新记录: ",data);
 				// chatObj
 				this.chatInfo.push(data)
+			},
+			computeHeight(){
+				let _this=this
+				uni.getSystemInfo({
+					success: function (res) {
+						setTimeout(()=>{
+							let view = uni.createSelectorQuery().select(".inputBox");
+							view.boundingClientRect(data=>{
+								console.log("data: ",data);
+								_this.scrollStyle=`height:${(res.windowHeight*2) - (data.height*2)}rpx;`
+							}).exec();
+						},0)
+					}
+				});
 			}
 		}
 	}

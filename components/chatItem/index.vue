@@ -1,11 +1,25 @@
 <template>
 	<view class="chat-item">
 		<view :class="chatContent.isme?'me':'other'">
-			<view class="textinfo" v-if="isMe"><text>{{chatContent.content}}</text></view>
+			<block v-if="isMe">
+				<view class="textinfo" v-if="chatContent.type=='0'">
+					<text v-if="chatContent.type=='0'">{{chatContent.content}}</text>
+				</view>
+				<view class="image-msg">
+					<image v-if="chatContent.imgUrl&&chatContent.type=='2'" :src="chatContent.imgUrl" ></image>
+				</view>
+			</block>
 			<view class="avatar">
-				<image :src="chatContent.avatar" mode="widthFix"></image>
+				<image :src="isMe?chatContent.avatar:robotInfo.avatar" mode="widthFix"></image>
 			</view>
-			<view class="textinfo" v-if="!isMe"><text>{{chatContent.content}}</text></view>
+			<block v-if="!isMe">
+				<view class="textinfo" v-if="chatContent.type=='0'">
+					<text v-if="chatContent.type=='0'">{{chatContent.content}}</text>
+				</view>
+				<view class="image-msg">
+					<image v-if="chatContent.imgUrl&&chatContent.type=='2'" :src="chatContent.imgUrl" ></image>
+				</view>
+			</block>
 		</view>
 	</view>
 </template>
@@ -25,10 +39,14 @@ export default{
 		isMe:{
 			type:Boolean,
 			default:false
+		},
+		robotInfo:{
+			type:Object,
+			default:{}
 		}
 	},
 	created() {
-		console.warn(" 聊天数据: ",this.$props.chatContent);
+		console.warn(" 聊天数据: ",this.$props.chatContent,this.$parent.$data);
 	},
 	methods:{
 		
