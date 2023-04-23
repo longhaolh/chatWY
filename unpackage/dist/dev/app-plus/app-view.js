@@ -1008,19 +1008,32 @@ var render = function () {
     "uni-view",
     { staticClass: _vm._$g(0, "sc"), attrs: { _i: 0 } },
     [
-      _vm._l(_vm._$g(1, "f"), function (item, index, $20, $30) {
-        return _c("ChatItem", { key: item, attrs: { _i: "1-" + $30 } })
-      }),
+      _c(
+        "v-uni-scroll-view",
+        {
+          staticClass: _vm._$g(1, "sc"),
+          style: _vm._$g(1, "s"),
+          attrs: { "scroll-y": "true", _i: 1 },
+        },
+        _vm._l(_vm._$g(2, "f"), function (item, index, $20, $30) {
+          return _c("ChatItem", { key: item, attrs: { _i: "2-" + $30 } })
+        }),
+        1
+      ),
       _c("ChatInput", {
-        attrs: { _i: 2 },
+        staticClass: _vm._$g(3, "sc"),
+        attrs: { _i: 3 },
         on: {
+          statusChange: function ($event) {
+            return _vm.$handleViewEvent($event)
+          },
           sendMsg: function ($event) {
             return _vm.$handleViewEvent($event)
           },
         },
       }),
     ],
-    2
+    1
   )
 }
 var recyclableRender = false
@@ -1179,41 +1192,77 @@ var render = function () {
         { class: _vm._$g(1, "c"), attrs: { _i: 1 } },
         [
           _vm._$g(2, "i")
-            ? _c(
-                "uni-view",
-                { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
-                [
-                  _c("v-uni-text", { attrs: { _i: 3 } }, [
-                    _vm._v(_vm._$g(3, "t0-0")),
-                  ]),
-                ],
-                1
-              )
+            ? [
+                _vm._$g(3, "i")
+                  ? _c(
+                      "uni-view",
+                      { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
+                      [
+                        _vm._$g(4, "i")
+                          ? _c("v-uni-text", { attrs: { _i: 4 } }, [
+                              _vm._v(_vm._$g(4, "t0-0")),
+                            ])
+                          : _vm._e(),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _c(
+                  "uni-view",
+                  { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                  [
+                    _vm._$g(6, "i")
+                      ? _c("v-uni-image", {
+                          attrs: { src: _vm._$g(6, "a-src"), _i: 6 },
+                        })
+                      : _vm._e(),
+                  ],
+                  1
+                ),
+              ]
             : _vm._e(),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
             [
               _c("v-uni-image", {
-                attrs: { src: _vm._$g(5, "a-src"), mode: "widthFix", _i: 5 },
+                attrs: { src: _vm._$g(8, "a-src"), mode: "widthFix", _i: 8 },
               }),
             ],
             1
           ),
-          _vm._$g(6, "i")
-            ? _c(
-                "uni-view",
-                { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-                [
-                  _c("v-uni-text", { attrs: { _i: 7 } }, [
-                    _vm._v(_vm._$g(7, "t0-0")),
-                  ]),
-                ],
-                1
-              )
+          _vm._$g(9, "i")
+            ? [
+                _vm._$g(10, "i")
+                  ? _c(
+                      "uni-view",
+                      { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                      [
+                        _vm._$g(11, "i")
+                          ? _c("v-uni-text", { attrs: { _i: 11 } }, [
+                              _vm._v(_vm._$g(11, "t0-0")),
+                            ])
+                          : _vm._e(),
+                      ],
+                      1
+                    )
+                  : _vm._e(),
+                _c(
+                  "uni-view",
+                  { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+                  [
+                    _vm._$g(13, "i")
+                      ? _c("v-uni-image", {
+                          attrs: { src: _vm._$g(13, "a-src"), _i: 13 },
+                        })
+                      : _vm._e(),
+                  ],
+                  1
+                ),
+              ]
             : _vm._e(),
         ],
-        1
+        2
       ),
     ],
     1
@@ -1256,7 +1305,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var _default = {
-  props: ["chatContent", "isMe"],
+  props: ["chatContent", "isMe", "robotInfo"],
   data: function data() {
     return {
       wxsProps: {}
@@ -1314,7 +1363,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.chat-item .me[data-v-2ebfc749], .chat-item .other[data-v-2ebfc749] {\r\n  width: 100vw;\r\n  padding: 0 32rpx;\r\n  padding-top: 20rpx;\r\n  min-height: 110rpx;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: flex-start;\r\n  box-sizing: border-box;\n}\n.chat-item .me .avatar[data-v-2ebfc749], .chat-item .other .avatar[data-v-2ebfc749] {\r\n  overflow: hidden;\r\n  width: 72rpx;\r\n  height: 72rpx;\r\n  border-radius: 10rpx;\n}\n.chat-item .me .avatar uni-image[data-v-2ebfc749], .chat-item .other .avatar uni-image[data-v-2ebfc749] {\r\n  width: 72rpx;\n}\n.chat-item .me .textinfo[data-v-2ebfc749], .chat-item .other .textinfo[data-v-2ebfc749] {\r\n  background-color: #93eb67;\r\n  padding: 16rpx;\r\n  margin-right: 24rpx;\r\n  box-sizing: border-box;\r\n  border-radius: 10rpx;\r\n  position: relative;\r\n  min-height: 72rpx;\r\n  max-width: calc(100vw - 40rpx - 248rpx);\n}\n.chat-item .me .textinfo[data-v-2ebfc749]::after, .chat-item .other .textinfo[data-v-2ebfc749]::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 36rpx;\r\n  right: -10rpx;\r\n  background-color: #93eb67;\r\n  -webkit-transform: rotate(45deg);\r\n          transform: rotate(45deg);\r\n  width: 20rpx;\r\n  height: 20rpx;\r\n  border-top-right-radius: 6rpx;\n}\n.chat-item .other[data-v-2ebfc749] {\r\n  justify-content: flex-start;\n}\n.chat-item .other .textinfo[data-v-2ebfc749] {\r\n  background-color: #fff;\r\n  margin-left: 24rpx;\n}\n.chat-item .other .textinfo[data-v-2ebfc749]::after {\r\n  background-color: #fff;\r\n  left: -10rpx;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.chat-item .me[data-v-2ebfc749], .chat-item .other[data-v-2ebfc749] {\r\n  width: 100vw;\r\n  padding: 0 32rpx;\r\n  padding-top: 20rpx;\r\n  min-height: 110rpx;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  align-items: flex-start;\r\n  box-sizing: border-box;\n}\n.chat-item .me .avatar[data-v-2ebfc749], .chat-item .other .avatar[data-v-2ebfc749] {\r\n  overflow: hidden;\r\n  width: 84rpx;\r\n  height: 84rpx;\r\n  border-radius: 14rpx;\n}\n.chat-item .me .avatar uni-image[data-v-2ebfc749], .chat-item .other .avatar uni-image[data-v-2ebfc749] {\r\n  width: 84rpx;\n}\n.chat-item .me .textinfo[data-v-2ebfc749], .chat-item .other .textinfo[data-v-2ebfc749] {\r\n  background-color: #93eb67;\r\n  padding: 16rpx;\r\n  margin-right: 24rpx;\r\n  box-sizing: border-box;\r\n  border-radius: 10rpx;\r\n  position: relative;\r\n  min-height: 84rpx;\r\n  line-height: 50rpx;\r\n  max-width: calc(100vw - 40rpx - 248rpx);\r\n  word-break: break-all;\n}\n.chat-item .me .textinfo[data-v-2ebfc749]::after, .chat-item .other .textinfo[data-v-2ebfc749]::after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 36rpx;\r\n  right: -10rpx;\r\n  background-color: #93eb67;\r\n  -webkit-transform: rotate(45deg);\r\n          transform: rotate(45deg);\r\n  width: 20rpx;\r\n  height: 20rpx;\r\n  border-top-right-radius: 6rpx;\n}\n.chat-item .me .image-msg[data-v-2ebfc749], .chat-item .other .image-msg[data-v-2ebfc749] {\r\n  max-height: 300rpx;\r\n  max-width: 200rpx;\n}\n.chat-item .other[data-v-2ebfc749] {\r\n  justify-content: flex-start;\n}\n.chat-item .other .textinfo[data-v-2ebfc749] {\r\n  background-color: #fff;\r\n  margin-left: 24rpx;\n}\n.chat-item .other .textinfo[data-v-2ebfc749]::after {\r\n  background-color: #fff;\r\n  left: -10rpx;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1432,56 +1481,200 @@ var render = function () {
       _c(
         "uni-view",
         { staticClass: _vm._$g(1, "sc"), attrs: { _i: 1 } },
-        [_c("uni-icons", { attrs: { _i: 2 } })],
-        1
-      ),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
         [
-          _vm._$g(4, "i")
-            ? _c("uni-easyinput", {
-                staticClass: _vm._$g(4, "sc"),
-                attrs: { _i: 4 },
-                model: {
-                  value: _vm._$g(4, "v-model"),
-                  callback: function () {},
-                  expression: "Msg",
-                },
-              })
-            : _c("uni-view", {
-                staticClass: _vm._$g(5, "sc"),
-                attrs: { _i: 5 },
-              }),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
+            [_c("uni-icons", { attrs: { _i: 3 } })],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            [
+              _vm._$g(5, "i")
+                ? _c("uni-easyinput", {
+                    staticClass: _vm._$g(5, "sc"),
+                    attrs: { _i: 5 },
+                    on: {
+                      focus: function ($event) {
+                        return _vm.$handleViewEvent($event)
+                      },
+                      blur: function ($event) {
+                        return _vm.$handleViewEvent($event)
+                      },
+                    },
+                    model: {
+                      value: _vm._$g(5, "v-model"),
+                      callback: function () {},
+                      expression: "Msg",
+                    },
+                  })
+                : _c("uni-view", {
+                    staticClass: _vm._$g(6, "sc"),
+                    attrs: { _i: 6 },
+                  }),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+            [_c("uni-icons", { attrs: { _i: 8 } })],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+            [
+              _vm._$g(10, "i")
+                ? _c("uni-icons", {
+                    attrs: { _i: 10 },
+                    on: {
+                      click: function ($event) {
+                        return _vm.$handleViewEvent($event)
+                      },
+                    },
+                  })
+                : _vm._e(),
+              _vm._$g(11, "i")
+                ? _c(
+                    "v-uni-text",
+                    {
+                      staticClass: _vm._$g(11, "sc"),
+                      attrs: { _i: 11 },
+                      on: {
+                        click: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                        longpress: function ($event) {
+                          return _vm.$handleViewEvent($event)
+                        },
+                      },
+                    },
+                    [_vm._v("发送")]
+                  )
+                : _vm._e(),
+            ],
+            1
+          ),
         ],
         1
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-        [_c("uni-icons", { attrs: { _i: 7 } })],
-        1
-      ),
-      _c(
-        "uni-view",
-        { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: _vm._$g(12, "v-show"),
+              expression: "_$g(12,'v-show')",
+            },
+          ],
+          staticClass: _vm._$g(12, "sc"),
+          attrs: { _i: 12 },
+        },
         [
-          _vm._$g(9, "i") ? _c("uni-icons", { attrs: { _i: 9 } }) : _vm._e(),
-          _vm._$g(10, "i")
-            ? _c(
-                "v-uni-text",
-                {
-                  staticClass: _vm._$g(10, "sc"),
-                  attrs: { _i: 10 },
-                  on: {
-                    click: function ($event) {
-                      return _vm.$handleViewEvent($event)
+          _c(
+            "v-uni-swiper",
+            {
+              staticClass: _vm._$g(13, "sc"),
+              attrs: { "indicator-dots": true, _i: 13 },
+            },
+            [
+              _c(
+                "v-uni-swiper-item",
+                { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
+                _vm._l(_vm._$g(15, "f"), function (item, index, $20, $30) {
+                  return _c(
+                    "uni-view",
+                    {
+                      key: item,
+                      staticClass: _vm._$g("15-" + $30, "sc"),
+                      attrs: { _i: "15-" + $30 },
                     },
-                  },
-                },
-                [_vm._v("发送")]
-              )
-            : _vm._e(),
+                    [
+                      _c(
+                        "uni-view",
+                        {
+                          staticClass: _vm._$g("16-" + $30, "sc"),
+                          attrs: { _i: "16-" + $30 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [_c("uni-icons", { attrs: { _i: "17-" + $30 } })],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        {
+                          staticClass: _vm._$g("18-" + $30, "sc"),
+                          attrs: { _i: "18-" + $30 },
+                        },
+                        [_vm._v(_vm._$g("18-" + $30, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                1
+              ),
+              _c(
+                "v-uni-swiper-item",
+                { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                _vm._l(_vm._$g(20, "f"), function (item, index, $21, $31) {
+                  return _c(
+                    "uni-view",
+                    {
+                      key: item,
+                      staticClass: _vm._$g("20-" + $31, "sc"),
+                      attrs: { _i: "20-" + $31 },
+                    },
+                    [
+                      _c(
+                        "uni-view",
+                        {
+                          staticClass: _vm._$g("21-" + $31, "sc"),
+                          attrs: { _i: "21-" + $31 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [_c("uni-icons", { attrs: { _i: "22-" + $31 } })],
+                        1
+                      ),
+                      _c(
+                        "uni-view",
+                        {
+                          staticClass: _vm._$g("23-" + $31, "sc"),
+                          attrs: { _i: "23-" + $31 },
+                        },
+                        [_vm._v(_vm._$g("23-" + $31, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  )
+                }),
+                1
+              ),
+            ],
+            1
+          ),
+          _c("uni-view", {
+            staticClass: _vm._$g(24, "sc"),
+            attrs: { _i: 24 },
+            on: {
+              click: function ($event) {
+                return _vm.$handleViewEvent($event)
+              },
+            },
+          }),
         ],
         1
       ),
@@ -2132,7 +2325,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _default = {
   name: "chatInput",
-  props: ["inputMode", "userinfo"],
+  props: ["inputMode", "keyBoardUp", "userinfo"],
   data: function data() {
     return {
       wxsProps: {}
@@ -2190,7 +2383,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.chat-input[data-v-7c4ac4ea] {\r\n  min-height: 90rpx;\r\n  width: 100vw;\r\n  background-color: #f1f1f1;\r\n  position: fixed;\r\n  bottom: 0;\r\n  left: 0;\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 24rpx;\r\n  border: none;\n}\n.chat-input .center[data-v-7c4ac4ea] {\r\n  width: 65%;\r\n  margin: 0 20rpx;\n}\n.chat-input .center[data-v-7c4ac4ea]  .uni-textarea-textarea {\r\n  background-color: #fff;\r\n  min-height: 48rpx;\r\n  font-size: 32rpx;\r\n  padding: 10rpx 16rpx;\n}\n.chat-input .center[data-v-7c4ac4ea]  .uni-easyinput__content {\r\n  border-radius: 10rpx;\n}\n.chat-input .center[data-v-7c4ac4ea]  .uni-easyinput__content-textarea {\r\n  min-height: 70rpx;\r\n  width: 100%;\r\n  margin: 0 !important;\r\n  border-radius: 10rpx;\n}\n.chat-input .emoji[data-v-7c4ac4ea] {\r\n  margin-right: 20rpx;\n}\n.chat-input .right .send-btn[data-v-7c4ac4ea] {\r\n  padding: 14rpx 36rpx;\r\n  background-color: #05c160;\r\n  border-radius: 8rpx;\r\n  white-space: nowrap;\r\n  color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.chat-input[data-v-7c4ac4ea] {\r\n  min-height: 110rpx;\r\n  width: 100vw;\r\n  background-color: #f1f1f1;\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  z-index: 99;\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 16rpx 32rpx;\r\n  border: none;\r\n  flex-direction: column;\n}\n.chat-input .top[data-v-7c4ac4ea] {\r\n  display: flex;\r\n  width: 100%;\r\n  padding-bottom: 16rpx;\r\n  align-items: center;\r\n  min-height: 90rpx;\n}\n.chat-input .top .center[data-v-7c4ac4ea] {\r\n  width: 65%;\r\n  margin: 0 20rpx;\n}\n.chat-input .top .center[data-v-7c4ac4ea]  .uni-textarea-textarea {\r\n  background-color: #fff;\r\n  min-height: 48rpx;\r\n  font-size: 32rpx;\r\n  padding: 10rpx 16rpx;\n}\n.chat-input .top .center[data-v-7c4ac4ea]  .uni-easyinput__content {\r\n  border-radius: 10rpx;\n}\n.chat-input .top .center[data-v-7c4ac4ea]  .uni-easyinput__content-textarea {\r\n  min-height: 70rpx;\r\n  width: 100%;\r\n  margin: 0 !important;\r\n  border-radius: 10rpx;\n}\n.chat-input .top .emoji[data-v-7c4ac4ea] {\r\n  margin-right: 20rpx;\n}\n.chat-input .top .right .send-btn[data-v-7c4ac4ea] {\r\n  padding: 14rpx 36rpx;\r\n  background-color: #05c160;\r\n  border-radius: 8rpx;\r\n  white-space: nowrap;\r\n  color: #fff;\n}\n.chat-input .bottom[data-v-7c4ac4ea] {\r\n  border-top: 1px solid #f3f3f3;\r\n  height: 520rpx;\r\n  width: 100vw;\n}\n.chat-input .bottom .swiper[data-v-7c4ac4ea] {\r\n  height: 100%;\n}\n.chat-input .bottom .swiper-item[data-v-7c4ac4ea] {\r\n  background: #f1f1f1;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  padding: 20rpx;\r\n  height: 85% !important;\n}\n.chat-input .bottom .swiper-item .setting-item[data-v-7c4ac4ea] {\r\n  margin: 28rpx;\n}\n.chat-input .bottom .swiper-item .setting-item-icon[data-v-7c4ac4ea] {\r\n  width: 120rpx;\r\n  height: 120rpx;\r\n  background-color: #fff;\r\n  border-radius: 30rpx;\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\n}\n.chat-input .bottom .swiper-item .setting-item-text[data-v-7c4ac4ea] {\r\n  width: 100%;\r\n  display: flex;\r\n  justify-content: center;\r\n  color: #333;\r\n  font-size: 24rpx;\r\n  -webkit-transform: translateY(6rpx);\r\n          transform: translateY(6rpx);\n}\n.chat-input .bottom .wraper[data-v-7c4ac4ea] {\r\n  width: 100vw;\r\n  height: calc(100vh - 660rpx);\r\n  z-index: -1;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -2243,7 +2436,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.content[data-v-4f63a556] {\r\n  background-color: #ececec;\r\n  width: 100vw;\r\n  height: 100vh;\r\n  overflow-y: scroll;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\n.content[data-v-4f63a556] {\r\n  width: 100vw;\r\n  overflow: hidden;\n}\n.content .scroll-view[data-v-4f63a556] {\r\n  background-color: #ececec;\r\n  padding-bottom: 22rpx;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -2295,11 +2488,11 @@ if(false) {}
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/lib/app-plus/getUrl.js */ 39);
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! @/static/iconfont.ttf */ 60);
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ./static/iconfont.ttf */ 60);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\r\n/*每个页面公共css */\n@font-face {\r\n  font-family: \"iconfont\"; /* Project id 4026640 */\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('truetype');\n}\n.iconfont {\r\n  font-family: \"iconfont\" !important;\r\n  font-size: 16px;\r\n  font-style: normal;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-tongxunlu:before {\r\n  content: \"\\e604\";\n}\n.icon-faxian:before {\r\n  content: \"\\e64b\";\n}\n.icon-faxian1:before {\r\n  content: \"\\e8af\";\n}\n.icon-tongxunlu1:before {\r\n  content: \"\\e6ae\";\n}\n.icon-xinxi:before {\r\n  content: \"\\e600\";\n}\n.icon-xinxi1:before {\r\n  content: \"\\e6a7\";\n}\n.icon-sousuo:before {\r\n  content: \"\\e630\";\n}\n.icon-yuyin:before {\r\n  content: \"\\e805\";\n}\n.icon-tianjia:before {\r\n  content: \"\\e635\";\n}\n.icon-biaoqing:before {\r\n  content: \"\\e60b\";\n}\nhtml {\r\n    box-sizing: border-box;\n}\r\n/*Yes, the universal selector. No, it isn't slow: https://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/*/\n* {\r\n    /*This prevents users being able to select text. Stops long presses in iOS bringing up copy/paste UI for example. Note below we specifically switch user-select on for inputs for the sake of Safari. Bug here: https://bugs.webkit.org/show_bug.cgi?id=82692*/\r\n    -webkit-user-select: none;\r\n            user-select: none;\r\n    /*This gets -webkit specific prefix as it is a non W3C property*/\r\n    -webkit-tap-highlight-color: rgba(255,255,255,0);\r\n    /*Older Androids need this instead*/\r\n    -webkit-tap-highlight-color: transparent;\r\n    /* Most devs find border-box easier to reason about. However by inheriting we can mix box-sizing approaches.*/\r\n    box-sizing: inherit;\n}\n*:before,\r\n*:after {\r\n    box-sizing: inherit;\n}\r\n/* Switching user-select on for inputs and contenteditable specifically for Safari (see bug link above)*/\nuni-input[type],\r\n[contenteditable] {\r\n\t-webkit-user-select: text;\r\n\t        user-select: text;\n}\nbody,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\np {\r\n    /*We will be adding our own margin to these elements as needed.*/\r\n    margin: 0;\r\n    /*You'll want to set font-size as needed.*/\r\n    font-size: 1rem;\r\n    /*No bold for h tags unless you want it*/\r\n    font-weight: 400;\n}\na {\r\n    text-decoration: none;\r\n    color: inherit;\n}\r\n/*No bold for b tags by default*/\nb {\r\n    font-weight: 400;\n}\r\n/*Prevent these elements having italics by default*/\nem,\r\ni {\r\n    font-style: normal;\n}\r\n/*Mozilla adds a dotted outline around a tags when they receive tab focus. This removes it. Be aware this is a backwards accessibilty step!*/\na:focus {\r\n    outline: 0;\n}\nuni-input,\r\nfieldset {\r\n    -webkit-appearance: none;\r\n            appearance: none;\r\n    border: 0;\r\n    padding: 0;\r\n    margin: 0;\r\n    /*inputs and fieldset defaults to having a min-width equal to its content in Chrome and Firefox (https://code.google.com/p/chromium/issues/detail?id=560762), we may not want that*/\r\n    min-width: 0;\r\n    /*Reset the font size and family*/\r\n    font-size: 1rem;\r\n    font-family: inherit;\n}\r\n/* For IE, we want to remove the default cross ('X') that appears in input fields when a user starts typing - Make sure you add your own! */\nuni-input::-ms-clear {\r\n    display: none;\n}\r\n/*This switches the default outline off when an input receives focus (really important for users tabbing through with a keyboard) so ensure you put something decent in for your input focus instead!!*/\nuni-input:focus {\r\n    outline: 0;\n}\nuni-input[type=\"number\"] {\r\n    /*Mozilla shows the spinner UI on number inputs unless we use this:*/\r\n    -moz-appearance: textfield;\n}\r\n/*Removes the little spinner controls for number type inputs (WebKit browsers/forks only)*/\nuni-input[type=\"number\"]::-webkit-inner-spin-button,\r\nuni-input[type=\"number\"]::-webkit-outer-spin-button {\r\n    -webkit-appearance: none;\r\n            appearance: none;\n}\r\n/*SVG defaults to inline display which I dislike*/\nsvg {\r\n    display: inline-flex;\n}\nimg {\r\n    /*Make images behave responsively. Here they will scale up to 100% of their natural size*/\r\n    max-width: 100%;\r\n    /*Make images display as a block (UA default is usually inline)*/\r\n    display: block;\n}\n.u-line-1 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 1;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-2 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 2;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-3 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 3;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-4 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 4;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-5 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 5;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-border {\r\n  border-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-style: solid;\n}\n.u-border-top {\r\n  border-top-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-top-style: solid;\n}\n.u-border-left {\r\n  border-left-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-left-style: solid;\n}\n.u-border-right {\r\n  border-right-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-right-style: solid;\n}\n.u-border-bottom {\r\n  border-bottom-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-bottom-style: solid;\n}\n.u-border-top-bottom {\r\n  border-top-width: 0.5px !important;\r\n  border-bottom-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-top-style: solid;\r\n  border-bottom-style: solid;\n}\n.u-reset-button {\r\n  padding: 0;\r\n  background-color: transparent;\n}\n.u-reset-button::after {\r\n  border: none;\n}\n.u-hover-class {\r\n  opacity: 0.7;\n}\n.u-primary-light {\r\n  color: #ecf5ff;\n}\n.u-warning-light {\r\n  color: #fdf6ec;\n}\n.u-success-light {\r\n  color: #f5fff0;\n}\n.u-error-light {\r\n  color: #fef0f0;\n}\n.u-info-light {\r\n  color: #f4f4f5;\n}\n.u-primary-light-bg {\r\n  background-color: #ecf5ff;\n}\n.u-warning-light-bg {\r\n  background-color: #fdf6ec;\n}\n.u-success-light-bg {\r\n  background-color: #f5fff0;\n}\n.u-error-light-bg {\r\n  background-color: #fef0f0;\n}\n.u-info-light-bg {\r\n  background-color: #f4f4f5;\n}\n.u-primary-dark {\r\n  color: #398ade;\n}\n.u-warning-dark {\r\n  color: #f1a532;\n}\n.u-success-dark {\r\n  color: #53c21d;\n}\n.u-error-dark {\r\n  color: #e45656;\n}\n.u-info-dark {\r\n  color: #767a82;\n}\n.u-primary-dark-bg {\r\n  background-color: #398ade;\n}\n.u-warning-dark-bg {\r\n  background-color: #f1a532;\n}\n.u-success-dark-bg {\r\n  background-color: #53c21d;\n}\n.u-error-dark-bg {\r\n  background-color: #e45656;\n}\n.u-info-dark-bg {\r\n  background-color: #767a82;\n}\n.u-primary-disabled {\r\n  color: #9acafc;\n}\n.u-warning-disabled {\r\n  color: #f9d39b;\n}\n.u-success-disabled {\r\n  color: #a9e08f;\n}\n.u-error-disabled {\r\n  color: #f7b2b2;\n}\n.u-info-disabled {\r\n  color: #c4c6c9;\n}\n.u-primary {\r\n  color: #3c9cff;\n}\n.u-warning {\r\n  color: #f9ae3d;\n}\n.u-success {\r\n  color: #5ac725;\n}\n.u-error {\r\n  color: #f56c6c;\n}\n.u-info {\r\n  color: #909399;\n}\n.u-primary-bg {\r\n  background-color: #3c9cff;\n}\n.u-warning-bg {\r\n  background-color: #f9ae3d;\n}\n.u-success-bg {\r\n  background-color: #5ac725;\n}\n.u-error-bg {\r\n  background-color: #f56c6c;\n}\n.u-info-bg {\r\n  background-color: #909399;\n}\n.u-main-color {\r\n  color: #303133;\n}\n.u-content-color {\r\n  color: #606266;\n}\n.u-tips-color {\r\n  color: #909193;\n}\n.u-light-color {\r\n  color: #c0c4cc;\n}\n.u-safe-area-inset-top {\r\n  padding-top: 0;\r\n  padding-top: constant(safe-area-inset-top);\r\n  padding-top: env(safe-area-inset-top);\n}\n.u-safe-area-inset-right {\r\n  padding-right: 0;\r\n  padding-right: constant(safe-area-inset-right);\r\n  padding-right: env(safe-area-inset-right);\n}\n.u-safe-area-inset-bottom {\r\n  padding-bottom: 0;\r\n  padding-bottom: constant(safe-area-inset-bottom);\r\n  padding-bottom: env(safe-area-inset-bottom);\n}\n.u-safe-area-inset-left {\r\n  padding-left: 0;\r\n  padding-left: constant(safe-area-inset-left);\r\n  padding-left: env(safe-area-inset-left);\n}\n::-webkit-scrollbar {\r\n  display: none;\r\n  width: 0 !important;\r\n  height: 0 !important;\r\n  -webkit-appearance: none;\r\n  background: transparent;\n}\r\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\r\n/**\r\n * 这里是uni-app内置的常用样式变量\r\n *\r\n * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量\r\n * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App\r\n *\r\n */\r\n/**\r\n * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能\r\n *\r\n * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件\r\n */\r\n/**\r\n * 下方引入的为uView UI的集成样式文件，为scss预处理器，其中包含了一些\"u-\"开头的自定义变量\r\n * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可\r\n * uView自定义的css类名和scss变量，均以\"u-\"开头，不会造成冲突，请放心使用 \r\n */\r\n/*导入uview的样式变量参数*/\r\n/* 颜色变量 */\r\n/* 行为相关颜色 */\r\n/* 文字基本颜色 */\r\n/* 背景颜色 */\r\n/* 边框颜色 */\r\n/* 尺寸变量 */\r\n/* 文字尺寸 */\r\n/* 图片尺寸 */\r\n/* Border Radius */\r\n/* 水平间距 */\r\n/* 垂直间距 */\r\n/* 透明度 */\r\n/* 文章场景相关 */\r\n/*每个页面公共css */\n@font-face {\r\n  font-family: \"iconfont\"; /* Project id 4026640 */\r\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ") format('truetype');\n}\n.iconfont {\r\n  font-family: \"iconfont\" !important;\r\n  font-size: 16px;\r\n  font-style: normal;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\n}\n.icon-weizhi:before {\r\n  content: \"\\e76f\";\n}\n.icon-wo:before {\r\n  content: \"\\e631\";\n}\n.icon-minpian:before {\r\n  content: \"\\e67b\";\n}\n.icon-shoucang:before {\r\n  content: \"\\e63d\";\n}\n.icon-yuyinshuru:before {\r\n  content: \"\\e6b0\";\n}\n.icon-paishe:before {\r\n  content: \"\\e675\";\n}\n.icon-faceCall:before {\r\n  content: \"\\e741\";\n}\n.icon-xiangce:before {\r\n  content: \"\\ebdd\";\r\n  font-size: 20px!important;\n}\n.icon-wenjian:before {\r\n  content: \"\\e703\";\n}\n.icon-tongxunlu:before {\r\n  content: \"\\e604\";\n}\n.icon-faxian:before {\r\n  content: \"\\e64b\";\n}\n.icon-faxian1:before {\r\n  content: \"\\e8af\";\n}\n.icon-tongxunlu1:before {\r\n  content: \"\\e6ae\";\n}\n.icon-xinxi:before {\r\n  content: \"\\e600\";\n}\n.icon-xinxi1:before {\r\n  content: \"\\e6a7\";\n}\n.icon-sousuo:before {\r\n  content: \"\\e630\";\n}\n.icon-yuyin:before {\r\n  content: \"\\e805\";\n}\n.icon-tianjia:before {\r\n  content: \"\\e635\";\n}\n.icon-biaoqing:before {\r\n  content: \"\\e60b\";\n}\nhtml {\r\n    box-sizing: border-box;\n}\r\n/*Yes, the universal selector. No, it isn't slow: https://benfrain.com/css-performance-revisited-selectors-bloat-expensive-styles/*/\n* {\r\n    /*This prevents users being able to select text. Stops long presses in iOS bringing up copy/paste UI for example. Note below we specifically switch user-select on for inputs for the sake of Safari. Bug here: https://bugs.webkit.org/show_bug.cgi?id=82692*/\r\n    -webkit-user-select: none;\r\n            user-select: none;\r\n    /*This gets -webkit specific prefix as it is a non W3C property*/\r\n    -webkit-tap-highlight-color: rgba(255,255,255,0);\r\n    /*Older Androids need this instead*/\r\n    -webkit-tap-highlight-color: transparent;\r\n    /* Most devs find border-box easier to reason about. However by inheriting we can mix box-sizing approaches.*/\r\n    box-sizing: inherit;\n}\n*:before,\r\n*:after {\r\n    box-sizing: inherit;\n}\r\n/* Switching user-select on for inputs and contenteditable specifically for Safari (see bug link above)*/\nuni-input[type],\r\n[contenteditable] {\r\n\t-webkit-user-select: text;\r\n\t        user-select: text;\n}\nbody,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\np {\r\n    /*We will be adding our own margin to these elements as needed.*/\r\n    margin: 0;\r\n    /*You'll want to set font-size as needed.*/\r\n    font-size: 1rem;\r\n    /*No bold for h tags unless you want it*/\r\n    font-weight: 400;\n}\na {\r\n    text-decoration: none;\r\n    color: inherit;\n}\r\n/*No bold for b tags by default*/\nb {\r\n    font-weight: 400;\n}\r\n/*Prevent these elements having italics by default*/\nem,\r\ni {\r\n    font-style: normal;\n}\r\n/*Mozilla adds a dotted outline around a tags when they receive tab focus. This removes it. Be aware this is a backwards accessibilty step!*/\na:focus {\r\n    outline: 0;\n}\nuni-input,\r\nfieldset {\r\n    -webkit-appearance: none;\r\n            appearance: none;\r\n    border: 0;\r\n    padding: 0;\r\n    margin: 0;\r\n    /*inputs and fieldset defaults to having a min-width equal to its content in Chrome and Firefox (https://code.google.com/p/chromium/issues/detail?id=560762), we may not want that*/\r\n    min-width: 0;\r\n    /*Reset the font size and family*/\r\n    font-size: 1rem;\r\n    font-family: inherit;\n}\r\n/* For IE, we want to remove the default cross ('X') that appears in input fields when a user starts typing - Make sure you add your own! */\nuni-input::-ms-clear {\r\n    display: none;\n}\r\n/*This switches the default outline off when an input receives focus (really important for users tabbing through with a keyboard) so ensure you put something decent in for your input focus instead!!*/\nuni-input:focus {\r\n    outline: 0;\n}\nuni-input[type=\"number\"] {\r\n    /*Mozilla shows the spinner UI on number inputs unless we use this:*/\r\n    -moz-appearance: textfield;\n}\r\n/*Removes the little spinner controls for number type inputs (WebKit browsers/forks only)*/\nuni-input[type=\"number\"]::-webkit-inner-spin-button,\r\nuni-input[type=\"number\"]::-webkit-outer-spin-button {\r\n    -webkit-appearance: none;\r\n            appearance: none;\n}\r\n/*SVG defaults to inline display which I dislike*/\nsvg {\r\n    display: inline-flex;\n}\nimg {\r\n    /*Make images behave responsively. Here they will scale up to 100% of their natural size*/\r\n    max-width: 100%;\r\n    /*Make images display as a block (UA default is usually inline)*/\r\n    display: block;\n}\n.u-line-1 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 1;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-2 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 2;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-3 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 3;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-4 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 4;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-line-5 {\r\n  display: -webkit-box !important;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  word-break: break-all;\r\n  -webkit-line-clamp: 5;\r\n  -webkit-box-orient: vertical !important;\n}\n.u-border {\r\n  border-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-style: solid;\n}\n.u-border-top {\r\n  border-top-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-top-style: solid;\n}\n.u-border-left {\r\n  border-left-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-left-style: solid;\n}\n.u-border-right {\r\n  border-right-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-right-style: solid;\n}\n.u-border-bottom {\r\n  border-bottom-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-bottom-style: solid;\n}\n.u-border-top-bottom {\r\n  border-top-width: 0.5px !important;\r\n  border-bottom-width: 0.5px !important;\r\n  border-color: #dadbde !important;\r\n  border-top-style: solid;\r\n  border-bottom-style: solid;\n}\n.u-reset-button {\r\n  padding: 0;\r\n  background-color: transparent;\n}\n.u-reset-button::after {\r\n  border: none;\n}\n.u-hover-class {\r\n  opacity: 0.7;\n}\n.u-primary-light {\r\n  color: #ecf5ff;\n}\n.u-warning-light {\r\n  color: #fdf6ec;\n}\n.u-success-light {\r\n  color: #f5fff0;\n}\n.u-error-light {\r\n  color: #fef0f0;\n}\n.u-info-light {\r\n  color: #f4f4f5;\n}\n.u-primary-light-bg {\r\n  background-color: #ecf5ff;\n}\n.u-warning-light-bg {\r\n  background-color: #fdf6ec;\n}\n.u-success-light-bg {\r\n  background-color: #f5fff0;\n}\n.u-error-light-bg {\r\n  background-color: #fef0f0;\n}\n.u-info-light-bg {\r\n  background-color: #f4f4f5;\n}\n.u-primary-dark {\r\n  color: #398ade;\n}\n.u-warning-dark {\r\n  color: #f1a532;\n}\n.u-success-dark {\r\n  color: #53c21d;\n}\n.u-error-dark {\r\n  color: #e45656;\n}\n.u-info-dark {\r\n  color: #767a82;\n}\n.u-primary-dark-bg {\r\n  background-color: #398ade;\n}\n.u-warning-dark-bg {\r\n  background-color: #f1a532;\n}\n.u-success-dark-bg {\r\n  background-color: #53c21d;\n}\n.u-error-dark-bg {\r\n  background-color: #e45656;\n}\n.u-info-dark-bg {\r\n  background-color: #767a82;\n}\n.u-primary-disabled {\r\n  color: #9acafc;\n}\n.u-warning-disabled {\r\n  color: #f9d39b;\n}\n.u-success-disabled {\r\n  color: #a9e08f;\n}\n.u-error-disabled {\r\n  color: #f7b2b2;\n}\n.u-info-disabled {\r\n  color: #c4c6c9;\n}\n.u-primary {\r\n  color: #3c9cff;\n}\n.u-warning {\r\n  color: #f9ae3d;\n}\n.u-success {\r\n  color: #5ac725;\n}\n.u-error {\r\n  color: #f56c6c;\n}\n.u-info {\r\n  color: #909399;\n}\n.u-primary-bg {\r\n  background-color: #3c9cff;\n}\n.u-warning-bg {\r\n  background-color: #f9ae3d;\n}\n.u-success-bg {\r\n  background-color: #5ac725;\n}\n.u-error-bg {\r\n  background-color: #f56c6c;\n}\n.u-info-bg {\r\n  background-color: #909399;\n}\n.u-main-color {\r\n  color: #303133;\n}\n.u-content-color {\r\n  color: #606266;\n}\n.u-tips-color {\r\n  color: #909193;\n}\n.u-light-color {\r\n  color: #c0c4cc;\n}\n.u-safe-area-inset-top {\r\n  padding-top: 0;\r\n  padding-top: constant(safe-area-inset-top);\r\n  padding-top: env(safe-area-inset-top);\n}\n.u-safe-area-inset-right {\r\n  padding-right: 0;\r\n  padding-right: constant(safe-area-inset-right);\r\n  padding-right: env(safe-area-inset-right);\n}\n.u-safe-area-inset-bottom {\r\n  padding-bottom: 0;\r\n  padding-bottom: constant(safe-area-inset-bottom);\r\n  padding-bottom: env(safe-area-inset-bottom);\n}\n.u-safe-area-inset-left {\r\n  padding-left: 0;\r\n  padding-left: constant(safe-area-inset-left);\r\n  padding-left: env(safe-area-inset-left);\n}\n::-webkit-scrollbar {\r\n  display: none;\r\n  width: 0 !important;\r\n  height: 0 !important;\r\n  -webkit-appearance: none;\r\n  background: transparent;\n}\r\n", ""]);
 // Exports
 module.exports = exports;
 

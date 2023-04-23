@@ -9,7 +9,27 @@
 		{
 			"path": "pages/chatDetail/index",
 			"style": {
-				"navigationBarTitleText": "聊天界面"
+				"navigationBarTitleText": "聊天界面",
+				"softinputMode": "adjustResize",
+				"disableScroll":true,
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"autoBackButton": true,
+						"backButton": {
+							"redDot": true,
+							"fontWeight": "bold"
+						},
+						"buttons": [
+							{
+								"float": "right",
+								"fontSrc": "/static/iconfont.ttf",
+								"text": "\ue60c",
+								"fontSize": "24"
+							}
+						]
+					}
+				}
 			}
 		}
 	],

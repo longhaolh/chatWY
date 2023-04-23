@@ -1,6 +1,8 @@
 import App from './App'
 import uView from '@/uni_modules/uview-ui'
+import store from './store'
 Vue.use(uView)
+Vue.prototype.$store = store
 // #ifndef VUE3
 import Vue from 'vue'
 Vue.config.productionTip = false
@@ -35,6 +37,7 @@ try {
 } catch (error) { }
 
 const app = new Vue({
+	store,
   ...App
 })
 app.$mount()

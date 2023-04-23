@@ -10,11 +10,11 @@
 		box-sizing: border-box;
 		.avatar{
 			overflow: hidden;
-			width: 72rpx;
-			height: 72rpx;
-			border-radius: 10rpx;
+			width: 84rpx;
+			height: 84rpx;
+			border-radius: 14rpx;
 			image{
-				width: 72rpx;
+				width: 84rpx;
 			}
 		}
 		.textinfo{
@@ -24,8 +24,10 @@
 			box-sizing: border-box;
 			border-radius: 10rpx;
 			position: relative;
-			min-height: 72rpx;
+			min-height: 84rpx;
+			line-height: 50rpx;
 			max-width: calc(100vw - 40rpx - 248rpx);
+			word-break: break-all;
 			&::after{
 				content: "";
 				position: absolute;
@@ -37,6 +39,10 @@
 				height: 20rpx;
 				border-top-right-radius: 6rpx;
 			}
+		}
+		.image-msg{
+			max-height: 300rpx;
+			max-width: 200rpx;
 		}
 	}
 	.other{

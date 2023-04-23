@@ -1,6 +1,35 @@
 .content{
-	background-color: #ececec;
 	width: 100vw;
-	height: 100vh;
-	overflow-y: scroll;
+	overflow: hidden;
+	.scroll-view{
+		background-color: #ececec;
+		padding-bottom: 20rpx;
+	}
+	.setting{
+		.setting-item{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 80rpx;
+			padding: 32rpx 32rpx 32rpx 64rpx ;
+			color: #999;
+			.left{
+				width: 30%;
+			}
+			.right{
+				width: 70%;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				.upImage{
+					padding: 6rpx 36rpx;
+					background-color: #f9f9f9;
+					border-radius: 14rpx;
+				}
+				input{
+					text-align: right;
+				}
+			}
+		}
+	}
 }
